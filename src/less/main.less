@@ -1,0 +1,121 @@
+@import (less) "normalize-css/normalize.css";
+@import "markupus/less/main";
+@import 'navbar.less';
+@import 'icons.less';
+@import 'variables.less';
+
+
+@media all and (min-width: 768px){
+	h1, .h1{font-size:ceil(@heading-font-size-1*1.2)}
+	h2, .h2{font-size:ceil(@heading-font-size-2*1.2)}
+	h3, .h3{font-size:ceil(@heading-font-size-3*1.2)}
+	h4, .h4{font-size:ceil(@heading-font-size-4*1.2)}
+	h5, .h5{font-size:ceil(@heading-font-size-5*1.2)}
+	h6, .h6{font-size:ceil(@heading-font-size-6*1.2)}
+}
+
+
+.header{
+	padding: 0 10px;
+	background-color: @global-primary-background;
+		@media all and (min-width: 768px){
+			padding: 0 33px;
+		}
+	&-top{
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		padding: 6px 0;
+		border-bottom: 1px solid #f2f2f2;
+		@media all and (min-width: 768px){
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+	&-list{
+		display: flex;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		justify-content: space-between;
+		&-item{
+			padding: 6px 15px;
+			&:last-child{
+				padding-right: 0;
+			}
+			&:first-child{
+				padding-left: 0;
+			}
+			&.border-right{
+					@media all and (min-width: 768px){
+				border-right: 1px solid #f2f2f2;
+			}
+			}
+			& .icon-phone{
+				color: #666;
+				position: relative;
+				font-size: 15px;
+				top: 2px;
+				margin-right: 8px;
+			}
+		}
+		&-link{
+			text-decoration: none;
+			&.is-active, &:hover {
+				color: @color-primary;
+			}
+			&.currency{
+				margin-right: 5px;
+			}
+		}
+	}
+	.search-cart-block{
+		position: absolute;
+		right: 70px;
+		top: 50%;
+		transform: translate(0, -50%);
+		padding-left: 5px;
+		@media all and (min-width: @navbar-breakpoint){
+			right: 0;
+		}
+		&:before{
+			content:'';
+			width: 1px;
+			height: 12px;
+			background-color: @color-dark;
+			display:block;
+			position: absolute;
+			top: 6px;
+			left: 0;
+		}
+		&-link{
+			color: @color-dark;
+			text-decoration: none;
+			padding-left: 20px;
+			font-size: 15px;
+			position: relative;
+			&:hover{
+				color: @color-primary;
+			}
+			&.shopping-cart{
+				padding-right: 12px;
+				display: inline-block;
+			}
+			& .number{
+				position: absolute;
+				display: block;
+				padding: 2px 0 3px;
+				line-height: 1;
+				width: 14px;
+				border-radius: 50%;
+				color: #fff;
+				background-color: @color-primary;
+				top: -3px;
+				right: 0;
+				font-size: 9px;
+				text-align: center;
+			}
+		}
+	}
+}
