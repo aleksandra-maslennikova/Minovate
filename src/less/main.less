@@ -3,6 +3,11 @@
 @import 'navbar.less';
 @import 'icons.less';
 @import 'variables.less';
+@import 'bootstrap/less/variables.less';
+@import 'bootstrap/less/mixins.less';
+@import 'bootstrap/less/grid.less';
+@import "bootstrap/less/utilities.less";
+@import "bootstrap/less/responsive-utilities.less";
 
 
 @media all and (min-width: 768px){
@@ -34,23 +39,32 @@
 		}
 	}
 	&-list{
-		display: flex;
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		justify-content: space-between;
+		&.left{
+			display: none;
+		}
+		@media all and (min-width: 768px){
+			display: flex;
+			justify-content: space-between;
+			&.left{
+				display: flex;
+				justify-content: space-between;
+			}
+		}
 		&-item{
-			padding: 6px 15px;
-			&:last-child{
-				padding-right: 0;
-			}
-			&:first-child{
-				padding-left: 0;
-			}
-			&.border-right{
-					@media all and (min-width: 768px){
-				border-right: 1px solid #f2f2f2;
-			}
+			@media all and (min-width: 768px){
+				padding: 6px 15px;
+				&:last-child{
+					padding-right: 0;
+				}
+				&:first-child{
+					padding-left: 0;
+				}
+				&.border-right{
+					border-right: 1px solid #f2f2f2;
+				}
 			}
 			& .icon-phone{
 				color: #666;
@@ -72,12 +86,13 @@
 	}
 	.search-cart-block{
 		position: absolute;
-		right: 70px;
-		top: 50%;
-		transform: translate(0, -50%);
+		right: 10px;
+		top: 10px;
 		padding-left: 5px;
 		@media all and (min-width: @navbar-breakpoint){
 			right: 0;
+			top: 50%;
+			transform: translate(0, -50%);
 		}
 		&:before{
 			content:'';
@@ -119,3 +134,194 @@
 		}
 	}
 }
+
+.feature{
+	background-color: @color-primary;
+	padding: 40px 0 25px;
+	color: #fff;
+	&-item{
+		display: flex;
+		align-items: center;
+		position: relative;
+		flex-direction: column;
+		text-align: center;
+		margin-bottom: 30px;
+		@media all and (min-width: 992px){
+			flex-direction: row;
+			text-align: left;
+			&.border:before{
+				content: '';
+				position: absolute;
+				display: block;
+				right: 0;
+				top: 50%;
+				transform: translate(0, -50%);
+				width: 1px;
+				height: 30px;
+				opacity: 0.6;
+				background-color: #fff;
+			}
+		}
+	}
+	&-icon{
+		margin-right: 15px;
+		font-size: 20px;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		border: 2px solid #fff;
+		position: relative;
+		[class^="icon-"], [class*=" icon-"] {
+			&:before{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+		@media all and (min-width: 768px){
+			margin-right: 18px;
+			font-size: 30px;
+			width: 55px;
+			height: 55px;
+		}
+	}
+	&-title{
+		font-size: 20px;
+		font-family: @font-family-condenced;
+		text-transform: uppercase;
+		font-weight: 700;
+		@media all and (min-width: 768px){
+			font-size: 30px;
+		}
+	}
+	&-description{
+		font-size: 12px;
+		text-transform: uppercase;
+		@media all and (min-width: 768px){
+			font-size: 14px;
+		}
+	}
+}
+
+.logos{
+	padding: 35px 45px;
+	&-list{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		@media all and (min-width: 768px){
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+	}
+	&-item{
+		margin: 5px 10px;
+	}
+	&-img{
+		opacity: 0.4;
+		&:hover{
+			opacity: 0.8;
+		}
+	}
+}
+
+.about{
+	background-color: #272727;
+	padding: 50px 0 0;
+	&-title{
+		font-family: @font-family-secondary;
+		font-size: 16px;
+		line-height:1.25;
+		font-weight: 700;
+		color: #ccc;
+		text-transform: uppercase;
+		margin-bottom: 10px;
+	}
+	&-text{
+		margin-bottom: 30px;
+	}
+}
+
+.informations{
+	&-list{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	&-link{
+		color:#428bca;
+		line-height: 1.847;
+		text-decoration: none;
+		margin-left: 10px;
+	}
+	.icon-chevron-right{
+		font-size: 8px;
+		color: #aaa;
+	}
+}
+
+.contact{
+	&-list{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		margin-bottom: 25px;
+	}
+	&-item{
+		font-weight: 300;
+		b{
+			font-weight: 700;
+		}
+	}
+}
+
+.newsletter{
+		.about-title{
+		margin: 0;
+		margin-right: 15px;
+	}
+	& .socials{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 230px;
+		margin: 0 auto;
+	}
+	.subscribe{
+		display: flex;
+		align-items: center;
+	}
+	.form-group{
+		flex: 1 1 auto;
+		margin-bottom: 0;
+	}
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+.hook-button() {
+	text-transform: uppercase;
+	&-primary{
+		background-color: @color-primary;
+	}
+};
+
+.hook-form-group() {
+	&.inline{
+		display: flex;
+	}
+};
