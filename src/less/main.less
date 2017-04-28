@@ -1,13 +1,14 @@
 @import (less) "normalize-css/normalize.css";
-@import "markupus/less/main";
-@import 'navbar.less';
-@import 'icons.less';
-@import 'variables.less';
 @import 'bootstrap/less/variables.less';
 @import 'bootstrap/less/mixins.less';
 @import 'bootstrap/less/grid.less';
 @import "bootstrap/less/utilities.less";
 @import "bootstrap/less/responsive-utilities.less";
+@import "markupus/less/main";
+@import 'navbar.less';
+@import 'icons.less';
+@import 'variables.less';
+
 
 
 @media all and (min-width: 768px){
@@ -27,12 +28,12 @@
 			padding: 0 33px;
 		}
 	&-top{
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		padding: 6px 0;
-		border-bottom: 1px solid #f2f2f2;
+		display: none;
 		@media all and (min-width: 768px){
+			width: 100%;
+			padding: 6px 0;
+			display: flex;
+			border-bottom: 1px solid #f2f2f2;
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
@@ -42,9 +43,6 @@
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		&.left{
-			display: none;
-		}
 		@media all and (min-width: 768px){
 			display: flex;
 			justify-content: space-between;
@@ -93,8 +91,7 @@
 			right: 0;
 			top: 50%;
 			transform: translate(0, -50%);
-		}
-		&:before{
+					&:before{
 			content:'';
 			width: 1px;
 			height: 12px;
@@ -104,6 +101,8 @@
 			top: 6px;
 			left: 0;
 		}
+		}
+
 		&-link{
 			color: @color-dark;
 			text-decoration: none;
@@ -140,11 +139,10 @@
 	padding: 40px 0 25px;
 	color: #fff;
 	&-item{
+		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		position: relative;
-		flex-direction: column;
-		text-align: center;
 		margin-bottom: 30px;
 		@media all and (min-width: 992px){
 			flex-direction: row;
@@ -179,7 +177,7 @@
 				transform: translate(-50%, -50%);
 			}
 		}
-		@media all and (min-width: 768px){
+		@media all and (min-width: 992px){
 			margin-right: 18px;
 			font-size: 30px;
 			width: 55px;
@@ -191,14 +189,14 @@
 		font-family: @font-family-condenced;
 		text-transform: uppercase;
 		font-weight: 700;
-		@media all and (min-width: 768px){
+		@media all and (min-width: 992px){
 			font-size: 30px;
 		}
 	}
 	&-description{
 		font-size: 12px;
 		text-transform: uppercase;
-		@media all and (min-width: 768px){
+		@media all and (min-width: 992px){
 			font-size: 14px;
 		}
 	}
@@ -252,6 +250,7 @@
 		margin: 0;
 		padding: 0;
 		list-style: none;
+		margin-bottom: 30px;
 	}
 	&-link{
 		color:#428bca;
@@ -270,7 +269,7 @@
 		margin: 0;
 		padding: 0;
 		list-style: none;
-		margin-bottom: 25px;
+		margin-bottom: 30px;
 	}
 	&-item{
 		font-weight: 300;
@@ -281,9 +280,13 @@
 }
 
 .newsletter{
-		.about-title{
-		margin: 0;
-		margin-right: 15px;
+	padding: 20px 0;
+	border-top: 1px solid #383838;
+	.about-title{
+		@media all and (min-width: 480px){
+			margin: 0;
+			margin-right: 15px;
+		}
 	}
 	& .socials{
 		display: flex;
@@ -291,14 +294,63 @@
 		align-items: center;
 		max-width: 230px;
 		margin: 0 auto;
+		margin-top: 10px;
+		&-link{
+			text-decoration: none;
+			color: #666;
+			font-size: 18px;
+			&:hover{
+				color: #fff;
+			}
+		}
 	}
 	.subscribe{
-		display: flex;
-		align-items: center;
+		@media all and (min-width: 480px){
+			display: flex;
+			align-items: center;
+		}
 	}
 	.form-group{
 		flex: 1 1 auto;
-		margin-bottom: 0;
+		margin-bottom: 20px;
+		.button{
+			display:block;
+			width: 100%;
+		}
+		@media all and (min-width: 480px){
+			margin-bottom: 0;
+			.button{
+				display: inline-block;
+				width: auto;
+			}
+		}
+	}
+}
+.footer-bottom{
+	background-color: #222;
+	&-holder{
+		text-align: center;
+		min-height: 126px;
+		padding: 18px 0;
+		@media all and (min-width: 480px){
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			text-align: left;
+			width: 100%;
+		}
+	}
+	.payment{
+		&-link{
+			line-height:1;
+			display: inline-block;
+			height:25px;
+			border-radius: 1px;
+			overflow: hidden;
+			img{
+				border-radius: 1px;
+			}
+		}
 	}
 }
 
@@ -321,7 +373,11 @@
 };
 
 .hook-form-group() {
+
+	@media all and (min-width: 480px){
 	&.inline{
-		display: flex;
+			display: flex;
+		}
+	
 	}
 };
