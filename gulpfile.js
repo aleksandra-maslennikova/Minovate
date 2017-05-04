@@ -21,7 +21,7 @@ var paths = {
   js:         '/js',
   images:     '/images',
   fonts:      '/fonts',
-  components: '/components'
+  components: '/components',
 }
 
 gulp.task('html', function () {
@@ -103,6 +103,7 @@ gulp.task('fonts', function() {
         .pipe(gulp.dest(paths.dest + paths.fonts))
         .pipe(browserSync.stream());
 });
+
 gulp.task('zip', function() {
     gulp.src(paths.dest + '/**/*.*')
         .pipe(zip(path.basename(__dirname) + '.zip'))
