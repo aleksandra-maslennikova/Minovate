@@ -1,8 +1,7 @@
 // https://www.npmjs.com/package/gulp-include
 //=require jquery/dist/jquery.min.js
 //=require slick-carousel/slick/slick.min.js
-
-
+//=require ion.rangeSlider/js/ion.rangeSlider.min.js
 $(function() {
 	$('.navbar-toggler').on('click', function(e){
 		e.preventDefault();
@@ -89,16 +88,24 @@ $(function() {
 		speed: 500
 	});
 
-$(window).scroll(function(){
-if ($(this).scrollTop() > 100) {
-$('#scrollup').fadeIn();
-} else {
-$('#scrollup').fadeOut();
-}
-});
- 
-$('#scrollup').click(function(){
-$("html, body").animate({ scrollTop: 0 }, 600);
-return false;
-});
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('#scrollup').fadeIn();
+		} else {
+			$('#scrollup').fadeOut();
+		}
+	});
+
+	$('#scrollup').click(function(){
+		$("html, body").animate({ scrollTop: 0 }, 600);
+		return false;
+	});
+
+$("#price-slider").ionRangeSlider( {
+	type: "double",
+	prefix: "Range: $",
+	decorate_both: false,
+	hide_min_max: true,
+	force_edges: true,
+	values_separator: " -"});
 });
