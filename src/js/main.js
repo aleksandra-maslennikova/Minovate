@@ -2,6 +2,7 @@
 //=require jquery/dist/jquery.min.js
 //=require slick-carousel/slick/slick.min.js
 //=require ion.rangeSlider/js/ion.rangeSlider.min.js
+//=require select2/dist/js/select2.js
 $(function() {
 	$('.navbar-toggler').on('click', function(e){
 		e.preventDefault();
@@ -103,9 +104,36 @@ $(function() {
 
 $("#price-slider").ionRangeSlider( {
 	type: "double",
-	prefix: "Range: $",
+	//prefix: "Range: $",
 	decorate_both: false,
 	hide_min_max: true,
-	force_edges: true,
-	values_separator: " -"});
+	force_edges: true
+	});
+
+$("#select-sort").select2({
+	minimumResultsForSearch: Infinity
+});
+$("#select-show").select2({
+	minimumResultsForSearch: Infinity
+});
+
+let fromValue = document.querySelector('.irs-from').textContent;
+let myFromValue = document.getElementById('price-from');
+	myFromValue.textContent= '$'+ fromValue + ' - ';
+let toValue = document.querySelector('.irs-to').textContent;
+let myToValue = document.getElementById('price-to');
+	 myToValue.textContent= '$'+ toValue;
+let sliderFrom = document.querySelector('.irs-slider.from');
+let sliderTo = document.querySelector('.irs-slider.to');
+
+sliderFrom.addEventListener('mousemove', function(e) {
+	let fromValue = document.querySelector('.irs-from').textContent;
+ myFromValue.textContent= '$'+ fromValue + ' - ';
+
+	});
+sliderTo.addEventListener('mousemove', function(e) {
+	let toValue = document.querySelector('.irs-to').textContent;
+ myToValue.textContent= '$'+ toValue;
+
+	});
 });

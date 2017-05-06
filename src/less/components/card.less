@@ -1,0 +1,148 @@
+@import 'variables.less';
+
+.hook-card() {
+	display: block;
+	background:#fff;
+	max-width: 320px;
+	margin: 0 auto;
+	&-hover{
+		display: none;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		background: rgba(0,0,0, 0.4);
+		.zoom, .view{
+			position: absolute;
+			top: 50%;
+			transform: translate(0, -50%);
+			width: 45px;
+			height: 45px;
+			background-color: @color-primary;
+			text-decoration: none;
+			span{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				color: #fff;
+			}
+		}
+		.view{
+			right: 0;
+		}
+	}
+	&:hover{
+		border-bottom: 4px solid #ebebeb;
+		img.card-image-normal{
+			display: none;
+		}
+		img.card-image-hover,.card-hover{
+			display: block;
+		}
+		.card-title{
+			color: @color-primary;
+			text-decoration: underline;
+		}
+		.button-add{
+			color: @color-primary;
+			border: 1px solid @color-primary;
+		}
+	}
+	&-title{
+		text-transform: uppercase;
+		font-size: 14px;
+		color:#666;
+		margin-bottom: 1px;
+		letter-spacing: 0.5px;
+	}
+	&-price{
+		color: @color-primary;
+		font-size: 16px;
+		letter-spacing: 0.5px;
+	}
+	&-hot,&-sale,&-new{
+			position: absolute;
+			text-align: center;
+			text-transform: uppercase;
+			font-family:@font-family-secondary;
+			font-size: 11px;
+			z-index: 1;
+			top: 0;
+			right: 0;
+			width: 60px;
+			height: 24px;
+			color: #fff;
+			padding-top: 5px;
+		}
+	
+	&-hot{
+		background-color: @color-primary;
+	}
+	&-new{
+		background-color:#16a085;
+	}
+	&-sale{
+		background-color:#5bc0de;
+	}
+	&-small{
+		display: flex;
+		text-decoration: none;
+		.card-image{
+			margin-right: 16px;
+			img{
+				display: block;
+			}
+		}
+		.card-description{
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+
+		}
+		.card-price{
+			font-size: 13px;
+			letter-spacing: 0;
+			line-height: 1.9;
+		}
+		.card-title{
+			letter-spacing: 0;
+		}
+		&:hover{
+			.card-title{
+				color: @color-primary;
+			}
+		}
+	}
+};
+
+.hook-card-image() {
+	position: relative;
+	img{
+		display: none;
+	}
+	img.card-image-normal{
+		display: block;
+	}
+};
+
+
+
+.hook-card-footer() {
+	padding: 23px 11px 24px 20px;
+};
+
+.hook-card-description() {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+};
+
+.block-title{
+	font-family: @font-family-secondary;
+	font-weight: 700;
+	color: #222;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}

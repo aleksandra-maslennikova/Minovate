@@ -15,7 +15,6 @@
 
 <body>
 	<div class="wrapper">
-
 	<header class="header">
 		<div class="header-top">
 			<ul class="header-list left">
@@ -185,7 +184,8 @@
 							</div>
 							<div class="price">
 								<div class="block-title">Price</div>
-								<input type="text" id="price-slider" name="example_name" value="" data-min="0" data-max="150" data-from ="36" data-to="89" />
+								<div class="price-values">Range: <span id="price-from"></span><span id="price-to"></span></div>
+								<input type="text" id="price-slider" name="example_name" value="" data-min="17" data-max="127" data-from ="36" data-to="89" />
 							</div>
 						</div>						<div class="bestsellers">
 							<div class="block-title">Best sellers</div>
@@ -222,7 +222,7 @@
 							<div class="filters-item">
 								<div class="block-title">sort by</div>
 								<div class="filters-select">
-									<select name="sort by" id="" class="sort">
+									<select name="sort by" id="select-sort" class="sort">
 										<option value="Default">Default</option>
 										<option value="Top">Top</option>
 										<option value="Bottom">Bottom</option>
@@ -233,8 +233,8 @@
 							</div>
 							<div class="filters-item">
 								<div class="block-title">show</div>
-								<div class="filters-select">
-									<select name="show" id="" >
+								<div class="filters-select show">
+									<select name="show" id="select-show" >
 										<option value="Default">9</option>
 										<option value="Top">12</option>
 										<option value="Bottom">15</option>
@@ -246,7 +246,8 @@
 						</div>
 						<div class="row">
 							<div class="col-sm-6 col-md-4">
-								<div class="card hot">
+								<div class="card">
+									<div class="card-hot">Hot</div>
 									<div class="card-image">
 										<img src="images/product1.jpg" alt="" class= "card-image-normal">
 										<img src="images/product2.jpg" alt="" class= "card-image-hover">
@@ -284,7 +285,8 @@
 								</div>
 							</div>
 							<div class="col-sm-6 col-md-4">
-								<div class="card new">
+								<div class="card">
+									<div class="card-new">New</div>
 									<div class="card-image">
 										<img src="images/product3.jpg" alt="" class= "card-image-normal">
 										<img src="images/product2.jpg" alt="" class= "card-image-hover">
@@ -322,7 +324,8 @@
 								</div>
 							</div>
 							<div class="col-sm-6 col-md-4">
-								<div class="card sale">
+								<div class="card">
+									<div class="card-sale">Sale</div>
 									<div class="card-image">
 										<img src="images/product5.jpg" alt="" class= "card-image-normal">
 										<img src="images/product2.jpg" alt="" class= "card-image-hover">
@@ -379,7 +382,8 @@
 								</div>
 							</div>
 							<div class="col-sm-6 col-md-4">
-								<div class="card sale">
+								<div class="card">
+									<div class="card-sale">Sale</div>
 									<div class="card-image">
 										<img src="images/product5.jpg" alt="" class= "card-image-normal">
 										<img src="images/product2.jpg" alt="" class= "card-image-hover">
@@ -421,7 +425,7 @@
 							<div class="pagination-text">Items 1 to 9 of  46 total</div>
 							<ul class="pagination-list">
 								<li class="pagination-prev"><a href="" class="pagination-link"><span class="icon-chevron-left"></span></a></li>
-								<li class="pagination-item"><a href="" class="pagination-link">1</a></li>
+								<li class="pagination-item"><a href="" class="pagination-link active">1</a></li>
 								<li class="pagination-item"><a href="" class="pagination-link">2</a></li>
 								<li class="pagination-item"><a href="" class="pagination-link">3</a></li>
 								<li class="pagination-item"><a href="" class="pagination-link">4</a></li>
@@ -548,8 +552,8 @@
 			<div class="footer-bottom">
 				<div class="container">
 					<div class="footer-bottom-holder">
-						<div class="copyrihgt">
-							<div class="copyright-text">© Copyright 2015 by Minovate. All Rights Reserved.</div>
+						<div class="copyright">
+							<div class="copyright-text">© Copyright 2015 by <span class="copyright-text-light">Minovate</span>. All Rights Reserved.</div>
 							<div class="copyright-text">Terms of Use  /  Privacy Policy</div>
 						</div>
 						<div class="payment">
