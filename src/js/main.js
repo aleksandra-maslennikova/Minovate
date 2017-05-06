@@ -129,9 +129,17 @@ let sliderTo = document.querySelector('.irs-slider.to');
 sliderFrom.addEventListener('mousemove', function(e) {
 	let fromValue = document.querySelector('.irs-from').textContent;
  myFromValue.textContent= '$'+ fromValue + ' - ';
-
+	});
+sliderFrom.addEventListener('touchmove', function(e) {
+	let fromValue = document.querySelector('.irs-from').textContent;
+ myFromValue.textContent= '$'+ fromValue + ' - ';
 	});
 sliderTo.addEventListener('mousemove', function(e) {
+	let toValue = document.querySelector('.irs-to').textContent;
+ myToValue.textContent= '$'+ toValue;
+
+	});
+sliderTo.addEventListener('touchmove', function(e) {
 	let toValue = document.querySelector('.irs-to').textContent;
  myToValue.textContent= '$'+ toValue;
 
