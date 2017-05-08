@@ -3,12 +3,12 @@
 .header{
 	padding: 0 10px;
 	background-color: @global-primary-background;
-		@media all and (min-width: 768px){
+		@media all and (min-width: @navbar-breakpoint){
 			padding: 0 33px;
 		}
 	&-top{
 		display: none;
-		@media all and (min-width: 768px){
+		@media all and (min-width: @navbar-breakpoint){
 			width: 100%;
 			padding: 1px 0;
 			display: flex;
@@ -22,7 +22,7 @@
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		@media all and (min-width: 768px){
+		@media all and (min-width: @navbar-breakpoint){
 			display: flex;
 			justify-content: space-between;
 			&.left{
@@ -31,7 +31,7 @@
 			}
 		}
 		&-item{
-			@media all and (min-width: 768px){
+			@media all and (min-width:@navbar-breakpoint){
 				padding: 7px 12px 5px;
 				&:last-child{
 					padding-right: 14px;

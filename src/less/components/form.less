@@ -1,9 +1,63 @@
 @import 'variables.less';
 .hook-form-group() {
-
 	@media all and (min-width: 480px){
-	&.inline{
+		&.inline{
 			display: flex;
 		}
 	}
+	&.inline .right-margin{
+			margin-right: 30px;
+			margin-bottom: 25px;
+			@media all and (min-width: 480px){
+				margin-bottom: 0;
+			}
+		}
+
+	&.small-margin{
+		margin-bottom: 7px;
+	}
 };
+
+
+
+input, textarea{
+ &::-webkit-input-placeholder {
+        color: @placeholder-color;
+        opacity: @placeholder-opacity;
+        text-transform: uppercase;
+    }
+ &::-moz-placeholder {
+        color: @placeholder-color;
+        opacity: @placeholder-opacity;
+        text-transform: uppercase;
+    }
+&:-ms-input-placeholder {
+        color: @placeholder-color;
+        opacity: @placeholder-opacity;
+        text-transform: uppercase;
+    }
+}
+
+textarea.form-control {
+	height: auto;
+	resize: none;
+	padding-bottom: 16px;
+}
+
+
+.hook-form() {};
+.hook-form-group() {};
+.hook-form-control() {
+	border: 2px solid #e8e8e8;
+	color: #ccc;
+	font-weight: 700;
+	font-family: @font-family-secondary;
+	font-size: 13px;
+};
+.hook-form-control-focus() {};
+.hook-form-control-placeholder() {};
+.hook-form-select() {};
+.hook-form-radio() {};
+.hook-form-checkbox() {};
+.hook-form-file() {};
+.hook-form-misc() {};

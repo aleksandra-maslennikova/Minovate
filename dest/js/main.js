@@ -5828,12 +5828,16 @@ S2.define('jquery.select2',[
 }));
 
 $(function() {
+
+/*-------------------Navbar-toggler---------------*/
+
 	$('.navbar-toggler').on('click', function(e){
 		e.preventDefault();
 		var target = $(this).attr('href');
 		$(target).toggleClass('collapse');
 	});
 
+/*---------------Logos-slider-------------------*/
 
 	$('.logos-slider').slick({
 		dots: false,
@@ -5875,6 +5879,8 @@ $(function() {
 	]
 });
 
+/*-------------------Bottom-slider---------------*/
+
 		$('.bottom-slider').slick({
 		dots: false,
 		arrows: true,
@@ -5908,10 +5914,33 @@ $(function() {
 	]
 });
 
+/*---------------------Main-carousel--------------*/
+
 	$('.carousel').slick({
 		infinite: true,
 		speed: 500
 	});
+
+
+/*-------------------Single-product-slider---------*/
+
+	$('.product-slider-top').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		asNavFor: '.product-slider-bottom',
+		fade: true
+	});
+	$('.product-slider-bottom').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		asNavFor: '.product-slider-top',
+		dots: false,
+		arrows: false,
+		focusOnSelect: true
+	});
+
+/*-----------------Scroll-to-top-----------------*/
 
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 100) {
@@ -5926,20 +5955,34 @@ $(function() {
 		return false;
 	});
 
-$("#price-slider").ionRangeSlider( {
-	type: "double",
-	//prefix: "Range: $",
-	decorate_both: false,
-	hide_min_max: true,
-	force_edges: true
-	});
+
+
+/*-----------------Filters-select----------*/
 
 $("#select-sort").select2({
 	minimumResultsForSearch: Infinity
 });
+
 $("#select-show").select2({
 	minimumResultsForSearch: Infinity
 });
+
+$("#select-size").select2({
+	minimumResultsForSearch: Infinity
+});
+
+$("#select-color").select2({
+	minimumResultsForSearch: Infinity
+});
+
+/*-----------------------Price-slider------------------------*/
+$("#price-slider").ionRangeSlider( {
+	type: "double",
+	decorate_both: false,
+	hide_min_max: true,
+	force_edges: true,
+	});
+
 
 let fromValue = document.querySelector('.irs-from').textContent;
 let myFromValue = document.getElementById('price-from');
@@ -5952,20 +5995,18 @@ let sliderTo = document.querySelector('.irs-slider.to');
 
 sliderFrom.addEventListener('mousemove', function(e) {
 	let fromValue = document.querySelector('.irs-from').textContent;
- myFromValue.textContent= '$'+ fromValue + ' - ';
+		myFromValue.textContent= '$'+ fromValue + ' - ';
 	});
 sliderFrom.addEventListener('touchmove', function(e) {
 	let fromValue = document.querySelector('.irs-from').textContent;
- myFromValue.textContent= '$'+ fromValue + ' - ';
+		myFromValue.textContent= '$'+ fromValue + ' - ';
 	});
 sliderTo.addEventListener('mousemove', function(e) {
 	let toValue = document.querySelector('.irs-to').textContent;
- myToValue.textContent= '$'+ toValue;
-
+		myToValue.textContent= '$'+ toValue;
 	});
 sliderTo.addEventListener('touchmove', function(e) {
 	let toValue = document.querySelector('.irs-to').textContent;
- myToValue.textContent= '$'+ toValue;
-
+			myToValue.textContent= '$'+ toValue;
 	});
 });
